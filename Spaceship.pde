@@ -30,10 +30,19 @@ class Spaceship extends Floater
   public void angle(double c){
     myPointDirection = c;
   }
-    public double getX(){
+  public double getX(){
     return myCenterX;
   }
   public double getY(){
     return myCenterY;
+  }
+  public double vroomX(){
+    return myXspeed;
+  }
+  public double vroomY(){
+    return myYspeed;
+  }
+  public double direction(){
+    return myPointDirection;
   }
 }
