@@ -2,6 +2,7 @@ Spaceship rocket = new Spaceship();
 Star[] space = new Star[300];
 Asteroid asteroid = new Asteroid();
 ArrayList <Asteroid> rock = new ArrayList <Asteroid>();
+ArrayList <Bullet> bullets = new ArrayList <Bullet>();
 double randomX, randomY, direction;
 public void setup(){
   size(400,400);
@@ -25,6 +26,10 @@ public void draw(){
     rock.remove(i);
   }
   }
+  for(int i = 0; i < bullets.size(); i++){
+    bullets.get(i).move();
+    bullets.get(i).show();
+    }
   rocket.move();
   rocket.show();
 }
@@ -52,6 +57,10 @@ public void keyPressed(){
     rocket.coords(randomX, randomY);
     rocket.angle(direction);
     }
+    //shooting
+    if(key == ' '){
+    bullets.add(new Bullet(rocket));
+  }
 }
 public void keyReleased(){
   if(key == 'w' || key == 's'){
